@@ -202,11 +202,11 @@ abstract class AbstractTask
             . ($this->getConfig()->deployment('user') != '' ? $this->getConfig()->deployment('user') . '@' : '')
             . $this->getConfig()->getHostName();
 
-        $remoteCommand = str_replace('"', '\"', $command);
+        $remoteCommand = $command;
         if ($cdToDirectoryFirst) {
             $remoteCommand = 'cd ' . rtrim($this->getConfig()->deployment('to'), '/') . $releasesDirectory . ' && ' . $remoteCommand;
         }
-        $localCommand .= ' ' . '"sh -c \"' . $remoteCommand . '\""';
+        $localCommand .= ' ' . '\'sh -c \\"' . $remoteCommand . '\\"\'';
 
         Console::log('Run remote command ' . $remoteCommand);
 
