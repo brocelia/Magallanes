@@ -49,7 +49,7 @@ abstract class BaseStrategyTaskAbstract extends AbstractTask implements IsReleas
     protected function getExcludes()
     {
         $excludes = array(
-            '.git',
+            '/.git',
             '.svn',
             '.mage',
             '.gitignore',
